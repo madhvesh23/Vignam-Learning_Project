@@ -1,7 +1,7 @@
 import React, { useContext,useEffect, useState } from "react";
 import axios from "axios";
 import { createContext } from "react";
-
+import api from "../API"
 const AppContext = createContext();
 
 // export this context to use across React component tree
@@ -20,7 +20,7 @@ function AppContextProvider(props) {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/chapters");
+      const response = await axios.get(`${api}/chapters`);
       setChapters(response.data);
       return response.data
 

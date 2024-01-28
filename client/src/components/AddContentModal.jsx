@@ -3,6 +3,7 @@ import { IoMdClose } from "react-icons/io";
 import { CiText } from "react-icons/ci";
 import { FaFilePdf } from "react-icons/fa6";
 import axios from "axios";
+import api from "../API"
 
 function AddContentModal({ onClose, chapter, topicDetails }) {
   const fileInputRef = useRef(null);
@@ -53,10 +54,10 @@ function AddContentModal({ onClose, chapter, topicDetails }) {
 
       console.log("made request for change");
       console.log(selectedTopic);
-      // await axios.put(
-      //   `http://localhost:5000/editTopic/${selectedTopic.id}`,
-      //   formData
-      // );
+      await axios.put(
+        `${api}/editTopic/${selectedTopic.id}`,
+        formData
+      );
       console.log("data edit");
     } catch (error) {
       console.error("Error fetching chapters:", error);
@@ -77,7 +78,7 @@ function AddContentModal({ onClose, chapter, topicDetails }) {
       console.log("made request for change");
       console.log(selectedTopic);
       await axios.put(
-        `http://localhost:5000/editTopic/${selectedTopic}`,
+        `${api}/editTopic/${selectedTopic}`,
         formData
       );
       console.log("data edit");

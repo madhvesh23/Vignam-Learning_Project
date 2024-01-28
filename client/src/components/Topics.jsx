@@ -7,7 +7,7 @@ import { SlNote } from "react-icons/sl";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Modal from "./AddContentModal";
 import axios from "axios";
-
+import api from "../API"
 function Topics({ chapter, chapter_id }) {
   const [selectedTopic, setSelectedTopic] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,7 +25,7 @@ function Topics({ chapter, chapter_id }) {
   const fetchTopic = async (selectedTopic) => {
     try {
       const topicData = await axios.get(
-        `http://localhost:5000/getTopic/${selectedTopic}`
+        `${api}/getTopic/${selectedTopic}`
       );
       setTopicDetails(topicData.data);
     } catch (error) {
@@ -35,7 +35,7 @@ function Topics({ chapter, chapter_id }) {
   const deleteTopic = async (selectedTopic) => {
     try {
       const topicData = await axios.delete(
-        `http://localhost:5000/deleteTopic/${selectedTopic}`
+        `${api}/deleteTopic/${selectedTopic}`
       );
       console.log("topic deleted");
     } catch (error) {

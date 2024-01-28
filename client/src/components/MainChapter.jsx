@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Topics from "./Topics";
+import api from "../API"
 function MainChapter() {
   const [chapter, setChapter] = useState([]);
   const { id } = useParams();
@@ -9,7 +10,7 @@ function MainChapter() {
   const fetch = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/chapter/${id}`
+        `${api}/chapter/${id}`
       );
       setChapter(response.data);
       return response.data;
@@ -19,7 +20,7 @@ function MainChapter() {
   };
   useEffect(() => {
     fetch();
-  }, [id]);
+  }, [id,chapter]);
 // console.log(chapter)
   return (
     <>
