@@ -13,7 +13,7 @@ import { IoLibraryOutline } from "react-icons/io5";
 
 
 function SideBar() {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleToggle = (expanded) => {
     setIsExpanded(expanded);
