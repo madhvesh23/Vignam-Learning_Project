@@ -48,7 +48,6 @@ function AddContentModal({ onClose, chapter, topicDetails }) {
         formData.append("contentPdf", file);
       }
 
-      
                   await axios.put(
         `${api}/editTopic/${selectedTopic.id}`,
         formData
