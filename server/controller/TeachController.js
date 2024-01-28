@@ -6,11 +6,9 @@ exports.data = async (req, res) => {
     const teachData = await Teach.findOne().populate({
       path: "chapters",
     });
-    console.log(teachData);
-    res.send(teachData);
+        res.send(teachData);
   } catch (error) {
-    console.log("Error in finding chapters");
-  }
+      }
 };
 
 exports.chapterAdd = async (req, res) => {
@@ -35,8 +33,7 @@ exports.chapterAdd = async (req, res) => {
 exports.addTopic = async (req, res) => {
   try {
     const { chapterId, topicName, content, contentPdf } = req.body;
-    console.log(topicName);
-    // Create the topic
+        // Create the topic
     const topic = await Topic.create({
       topicName,
       content,
@@ -50,8 +47,7 @@ exports.addTopic = async (req, res) => {
     await chapter.save();
     res.send(topic);
   } catch (error) {
-    console.log("Error in adding chapter");
-  }
+      }
 };
 
 exports.editTopic = async (req, res) => {
@@ -149,13 +145,11 @@ exports.getTopic = async (req, res) => {
 exports.getTopicById = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(id);
-    const topic = await Topic.findById(id);
+        const topic = await Topic.findById(id);
     if (!topic) {
       return res.status(404).json({ error: "Topic not found" });
     }
-    console.log(topic);
-    res.json(topic);
+        res.json(topic);
   } catch (error) {
     console.error("Error:", error);
     res.status(500).json({ error: "Internal server error" });
@@ -182,7 +176,7 @@ exports.deleteTopicById = async (req, res) => {
 exports.downloadFile = async (req, res) => {
   try {
     const { name } = req.params;
-console.log(name)
+
   
     if (!name) {
       return res.status(400).json({ error: 'Invalid filename' });

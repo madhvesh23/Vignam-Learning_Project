@@ -37,14 +37,12 @@ function Topics({ chapter, chapter_id }) {
       const topicData = await axios.delete(
         `${api}/deleteTopic/${selectedTopic}`
       );
-      console.log("topic deleted");
-    } catch (error) {
+          } catch (error) {
       console.error("Error deleting topic:", error);
     }
   };
 
-  console.log(selectedTopic);
-  const isTopicSelected = selectedTopic !== "";
+    const isTopicSelected = selectedTopic !== "";
   const selectedTopicObject =
     Array.isArray(chapter.topics) &&
     chapter.topics.find((topic) => topic._id === selectedTopic);

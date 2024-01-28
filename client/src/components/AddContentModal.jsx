@@ -27,11 +27,10 @@ function AddContentModal({ onClose, chapter, topicDetails }) {
     const selectedTopicId = event.target.value;
     const selectedTopicName =
       event.target.options[event.target.selectedIndex].text;
-      console.log(selectedTopicName)
+
     setSelectedTopic({ id: selectedTopicId, name: selectedTopicName });
   };
-  console.log(selectedTopic);
-  const submitContent = (e) => {
+    const submitContent = (e) => {
     e.preventDefault();
     showContentModal();
     setStoreContent(storeContent);
@@ -40,8 +39,7 @@ function AddContentModal({ onClose, chapter, topicDetails }) {
     setContentModal(!contentModal);
     setStoreContent(topicDetails.content);
   };
-  console.log(storeContent);
-  const sendContent = async (selectedTopic) => {
+    const sendContent = async (selectedTopic) => {
     try {
       const formData = new FormData();
       formData.append("topicName", selectedTopic.name);
@@ -50,16 +48,12 @@ function AddContentModal({ onClose, chapter, topicDetails }) {
         formData.append("contentPdf", file);
       }
 
-      console.log(formData);
-
-      console.log("made request for change");
-      console.log(selectedTopic);
-      await axios.put(
+      
+                  await axios.put(
         `${api}/editTopic/${selectedTopic.id}`,
         formData
       );
-      console.log("data edit");
-    } catch (error) {
+          } catch (error) {
       console.error("Error fetching chapters:", error);
     }
   };
@@ -73,16 +67,12 @@ function AddContentModal({ onClose, chapter, topicDetails }) {
         formData.append("contentPdf", file);
       }
 
-      console.log(formData);
-
-      console.log("made request for change");
-      console.log(selectedTopic);
-      await axios.put(
+      
+                  await axios.put(
         `${api}/editTopic/${selectedTopic}`,
         formData
       );
-      console.log("data edit");
-    } catch (error) {
+          } catch (error) {
       console.error("Error fetching chapters:", error);
     }
   };

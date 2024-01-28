@@ -21,7 +21,6 @@ function MainChapter() {
   useEffect(() => {
     fetch();
   }, [id,chapter]);
-// console.log(chapter)
   return (
     <>
      {chapter && <Topics chapter_id={id} chapter={chapter}/>}

@@ -3,8 +3,7 @@ import axios from "axios";
 import Carousel from "react-bootstrap/Carousel";
 import api from "../API"
 function TopicContent({ selectedTopicObject }) {
-  console.log(selectedTopicObject);
-  const handleButtonClick = async (pdfFileName) => {
+    const handleButtonClick = async (pdfFileName) => {
     try {
       const res = await axios.get(
         `${api}/downloadPdf/${pdfFileName}`,
@@ -16,8 +15,7 @@ function TopicContent({ selectedTopicObject }) {
       link.download = "file.pdf";
       // link.download = res.headers["content-disposition"].split("filename=")[1];
       link.click();
-      console.log("333");
-    } catch (error) {
+          } catch (error) {
       console.error("Error downloading Pdf:", error);
     }
   };

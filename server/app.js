@@ -44,11 +44,8 @@ const MONGO_URL =
 mongoose
   .connect(MONGO_URL)
   .then(() => {
-    console.log("Connected MONGODB");
-    app.listen(PORT, () => {
-      console.log(`Listening on Port http://localhost:${PORT}`);
-    });
+        app.listen(PORT, () => {
+          });
   })
   .catch((err) => {
-    console.log(err);
-  });
+      });
